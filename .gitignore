@@ -1,0 +1,13 @@
+
+        # .gitignore for root project folder
+        # Ignore node_modules in both backend and frontend
+        backend/node_modules/
+        frontend/node_modules/
+
+        # Other common ignores
+        .env
+        *.log
+        dist/
+        build/
+        node_modules
+node_modules
