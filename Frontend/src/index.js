@@ -1,17 +1,15 @@
 import React from 'react';
-// Use createRoot for modern React 18+ rendering
-import { createRoot } from 'react-dom/client'; 
-import App from './App'; // Import the main App component
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-// Get the element where the app will live
-const container = document.getElementById('root');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
-// Create the root object
-const root = createRoot(container); 
-
-// Render the App component
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// FIX: Update the registration call to pass the config object,
+// ensuring it works with the custom registration file above.
+serviceWorkerRegistration.register({
+    onSuccess: () => console.log('PWA Service Worker ready and active!'),
+    onError: (error) => console.error('PWA Registration Error:', error),
+});
